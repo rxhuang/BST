@@ -187,11 +187,32 @@ int main() {
     BSTInt g;
     if(!g.empty()){
         cout << "Some error at empty()" <<endl;
+        return -1;
     }
     
     if(b.empty()){
         cout << "Some error at empty()" <<endl;
+        return -1;
     }
+    
+    /*Test height*/
+    BSTInt h;
+    if(h.height() != -1){
+        cout << "Some error at height()" << endl;
+        return -1;
+    }
+    
+    h.insert(3);
+    if(h.height() != 0){
+        cout << "Some error at height()" << endl;
+        return -1;
+    }
+    
+    if(c.height() != 2){
+        cout << "Some error at height()" << endl;
+        return -1;
+    }
+    
 
     /* UNCOMMENT THE LINES BELOW TO TEST THE TEMPLATE-BASED ITERATOR */
     /*
