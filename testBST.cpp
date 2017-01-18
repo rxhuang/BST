@@ -65,7 +65,7 @@ int main() {
   BSTInt b;
 
   // Could use: for(auto item : v) { instead of the line below
-  for(int item : v) {
+    for(int item : v) {
     bool pr = b.insert(item);
     if(! pr ) {
       cout << "Incorrect bool return value when inserting " << item << "to v" 
@@ -73,6 +73,7 @@ int main() {
       return -1;
     }
   }
+    
 
   /* Create an instance of BST holding int */
   BSTInt c;
@@ -141,6 +142,42 @@ int main() {
     // Test the items that are already in the tree
     for(int item : v) {
         if(!b.find(item)) {
+            cout << "Incorrect return value when finding " << item << endl;
+            return -1;
+        }
+    }
+    
+    /* Test find return value. */
+    // Test the items that are already in the tree
+    for(int item : rootDuplicate) {
+        if(!c.find(item)) {
+            cout << "Incorrect return value when finding " << item << endl;
+            return -1;
+        }
+    }
+    
+    /* Test find return value. */
+    // Test the items that are already in the tree
+    for(int item : middleDuplicate) {
+        if(!d.find(item)) {
+            cout << "Incorrect return value when finding " << item << endl;
+            return -1;
+        }
+    }
+    
+    /* Test find return value. */
+    // Test the items that are already in the tree
+    for(int item : leafDuplicate) {
+        if(!e.find(item)) {
+            cout << "Incorrect return value when finding " << item << endl;
+            return -1;
+        }
+    }
+    
+    /* Test find return value. */
+    // Test the items that are already in the tree
+    for(int item : oneChildDuplicate) {
+        if(!f.find(item)) {
             cout << "Incorrect return value when finding " << item << endl;
             return -1;
         }
