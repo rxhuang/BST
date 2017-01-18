@@ -119,7 +119,7 @@ int BSTInt::height() const
 
 int BSTInt::heightHelper(BSTNodeInt* n) const
 {
-  if(n){
+  if(!n){
     return -1;
   }else{
     return 1+max(heightHelper(n->left),heightHelper(n->right));
