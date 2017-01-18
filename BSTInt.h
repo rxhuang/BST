@@ -58,7 +58,6 @@ public:
    */
   int height() const;
 
-
   /** Return true if the BST is empty, else false. 
    */
   bool empty() const;
@@ -73,6 +72,8 @@ private:
   /** Number of Data items stored in this BST. 
    *  Cache this number for efficiency. */
   unsigned int isize;
+
+  int heightHelper(BSTNodeInt* n) const;
 
 
   /** do a postorder traversal, deleting nodes
