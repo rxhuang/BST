@@ -183,6 +183,15 @@ int main() {
         }
     }
 
+    /*Test empty() */
+    BSTInt g;
+    if(!g.empty()){
+        cout << "Some error at empty()" <<endl;
+    }
+    
+    if(b.empty()){
+        cout << "Some error at empty()" <<endl;
+    }
 
     /* UNCOMMENT THE LINES BELOW TO TEST THE TEMPLATE-BASED ITERATOR */
     /*
