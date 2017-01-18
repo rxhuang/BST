@@ -122,8 +122,15 @@ int BSTInt::heightHelper(BSTNodeInt* n) const
   if(n){
     return -1;
   }else{
-      return 1+(heightHelper(n->left)<heightHelper(n->right)?heightHelper(n->right):heightHelper(n->left));
+    return 1+max(heightHelper(n->left),heightHelper(n->right));
   }
+}
+
+int BSTInt::max(int a, int b)const{
+  if(a>b)
+    return a;
+  else
+    return b;
 }
 
 /** Return true if the BST is empty, else false. 

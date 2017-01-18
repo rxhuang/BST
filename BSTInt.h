@@ -74,7 +74,8 @@ private:
   unsigned int isize;
 
   int heightHelper(BSTNodeInt* n) const;
-
+  
+  int max(int a, int b)const;
 
   /** do a postorder traversal, deleting nodes
    * This is a helper for the destructor
