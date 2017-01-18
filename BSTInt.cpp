@@ -57,7 +57,7 @@ bool BSTInt::insert(int item)
     curr->left = newNode;
     newNode->parent = curr;
   }
-  else if(item > curr->data) {
+  else if(curr->data < item) {
     curr->right = newNode;
     newNode->parent = curr;
   }
