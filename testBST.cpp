@@ -63,7 +63,16 @@ int main() {
 
   /* Create an instance of BST holding int */
   BSTInt b;
-
+  /*Test Empty*/
+    if(!b.empty()){
+        cout << "Some error at empty()" <<endl;
+        return -1;
+    }
+  /*Test Height */
+    if(b.height() != -1){
+        cout << "Some error at height()" << endl;
+        return -1;
+    }
   // Could use: for(auto item : v) { instead of the line below
     for(int item : v) {
     bool pr = b.insert(item);
@@ -184,11 +193,6 @@ int main() {
     }
 
     /*Test empty() */
-    BSTInt g;
-    if(!g.empty()){
-        cout << "Some error at empty()" <<endl;
-        return -1;
-    }
     
     if(b.empty()){
         cout << "Some error at empty()" <<endl;
@@ -196,17 +200,6 @@ int main() {
     }
     
     /*Test height*/
-    BSTInt h;
-    if(h.height() != -1){
-        cout << "Some error at height()" << endl;
-        return -1;
-    }
-    
-    h.insert(3);
-    if(h.height() != 0){
-        cout << "Some error at height()" << endl;
-        return -1;
-    }
     
     if(c.height() != 2){
         cout << "Some error at height()" << endl;
