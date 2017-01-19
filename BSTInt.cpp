@@ -3,6 +3,12 @@
 
 /* Function definitions for a int-based BST class */
 
+/*
+ * 1/18/2017
+ * Ruoxin Huang(A99084753) and Shengyuan Lin(A13533001)
+ * Assignment 1
+ */
+
 
 /** Default destructor.
     Delete every node in this BST.
@@ -19,12 +25,6 @@ BSTInt::~BSTInt() {
  *  Data items. (should not use ==, >, <=, >=)  For the reasoning
  *  behind this, see the assignment writeup.
  */
-
-/*
- *   1/18/2017
- *   Ruoxin Huang(A99084753) and Shengyuan Lin(A13533001)
- *   Assignment 1
- */
 bool BSTInt::insert(int item)
 {
   if (!root) {
@@ -33,6 +33,7 @@ bool BSTInt::insert(int item)
     return true;
   }
 
+  //Go to node with availabe space while preserving tree property
   BSTNodeInt* curr = root;  
   while (curr->left || curr->right) {
     if (item < curr->data) {
@@ -56,7 +57,7 @@ bool BSTInt::insert(int item)
     }
   }
 
-  // Ready to insert
+  // create new node and insert
   BSTNodeInt* newNode = new BSTNodeInt(item);
   if (item < curr->data) {
     curr->left = newNode;
@@ -122,6 +123,7 @@ int BSTInt::height() const
   }
 }
 
+//Helper method for height, recursive method to find tha maximum height of left and right subtree
 int BSTInt::heightHelper(BSTNodeInt* n) const
 {
   if(!n){
@@ -131,6 +133,7 @@ int BSTInt::heightHelper(BSTNodeInt* n) const
   }
 }
 
+//Helper method to return the greater of 2 integers
 int BSTInt::max(int a, int b)const{
   if(a>b)
     return a;

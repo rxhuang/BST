@@ -14,6 +14,13 @@
  *  (except in odd cases, eg. "50 CENT" and "ICE-T")
  */
 
+/*
+ * 1/18/2017
+ * Ruoxin Huang(A99084753) and Shengyuan Lin(A13533001)
+ * Assignment 1
+ */
+
+
 using namespace std;
 
 int main(int argc, char* argv[])

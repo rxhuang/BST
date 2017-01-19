@@ -4,6 +4,12 @@
 #include <list>
 #include <iterator>
 
+/*
+ * 1/18/2017
+ * Ruoxin Huang(A99084753) and Shengyuan Lin(A13533001)
+ * Assignment 1
+ */
+
 
 // Notice this class extends the std::iterator class.
 template<typename Data>

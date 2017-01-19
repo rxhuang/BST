@@ -3,6 +3,13 @@
 #include <iomanip>
 #include <iostream>
 
+/*
+ * 1/18/2017
+ * Ruoxin Huang(A99084753) and Shengyuan Lin(A13533001)
+ * Assignment 1
+ */
+
+
   /** Constructor.  Initialize a BSTNode with the given Data item,
    *  no parent, and no children.
    */

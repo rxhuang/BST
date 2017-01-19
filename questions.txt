@@ -1,9 +1,6 @@
 [cs100wcu@ieng6-202]:~:27$ 
 Question 1.
-testBST.cpp
-BSTInt.cpp
-BSTNodeInt.cpp
-testBST.o BSTInt.o BSTNodeInt.o BST.hpp BSTNode.hpp BSTIterator.hpp
+4 files created: testBST.o BSTInt.o BSTNodeInt.o and bst
 
 Question 2.
 BSTInt.cpp: In function 'bool insert(int)':
@@ -24,7 +21,7 @@ This occurs because if we do not use the name scope BSTInt, then we cannot use t
 
 
 Question3.
-The bug was in the insertion function. The function does not always insert nodes to leaf nodes and it allows duplicates to be inserted if the duplicate node is a leaf node.
+The bug was in the insertion function. The function may insert a left or right child to a node even if the node already has a left or right child and it allows duplicates to be inserted if the duplicate node is a leaf node.
 
 Question4.
 I noticed there was somthing wrong when i was looking at the line "while(curr->left && curr->right)". This loop is intended to find the first node satisfying the BST property that has at most one child and the next part was to create a new node and add to this parent node. However, we are supposed to find the last node satisfying the BST property that has at most one child. So I changed the line to "while(curr->left || curr->right)" and got segmentatioin fault when I ran my tests. I then realized it was because it lets cur point to a child that may not exist. So, I added conditions to check if a child exists before I let cur point to it. Then I ran more test and when I got to my test called leafDuplicate, it failed by allowing me to add duplicates of a leaf node. I wen to the code and realized that the second part only had a condition for nodes smaller the parent but no condition for nodes greater than the parent, so I added a condition and everything worked fine.

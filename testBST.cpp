@@ -24,7 +24,7 @@ using namespace std;
  */
 int main() {
 
-	/* Create an STL vector of some ints */
+	/* Create STL vectors of some ints */
 	/*test*/
 	vector<int> v;
 	v.push_back(3);
