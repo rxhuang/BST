@@ -14,7 +14,13 @@ using namespace std;
  * A test driver for the BST int class and class template.
  * PA1 CSE 100 2016
  * Author: Christine Alvarado and YOU
+ * Ruoxin Huang and Shengyuan Lin
  * TODO: Add more tests
+ */
+/*
+ * 1/18/2017
+ * Ruoxin Huang(A99084753) and Shengyuan Lin(A13533001)
+ * Assignment 1
  */
 int main() {
 
