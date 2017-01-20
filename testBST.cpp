@@ -28,7 +28,7 @@ int main() {
 	/*test*/
 	vector<int> v;
 	v.push_back(3);
-	v.push_back(4);
+	/*v.push_back(4);
 	v.push_back(1);
 	v.push_back(100);
 	v.push_back(-33);
@@ -38,7 +38,7 @@ int main() {
 	v.push_back(-55);
 	v.push_back(-40);
 	v.push_back(2);
-
+	*/
 	vector<int> rootDuplicate;
 	rootDuplicate.push_back(2);
 	rootDuplicate.push_back(3);
@@ -283,7 +283,7 @@ int main() {
 		return -1;
 	}
 	/* UNCOMMENT THE LINES BELOW TO TEST THE TEMPLATE-BASED ITERATOR */
-	/*
+	
 	// Test the template version of the BST  with ints 
 	BST<int> btemp;
 	for (int item : v) {
@@ -346,12 +346,13 @@ int main() {
 	<< ": Incorrect inorder iteration of BST." << endl;
 	return -1;
 	}
+	cout <<"hi"<<endl;
 	++it;
 	}
 
 	cout << "success!" << endl;
 
-*/
+
 
 	// ADD MORE TESTS HERE.  You might also want to change what is input
 	// into the vector v.
