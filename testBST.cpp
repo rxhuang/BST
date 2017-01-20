@@ -325,21 +325,71 @@ int main() {
 	}
 
 	/*Test empty() */
-
 	if(btemp.empty()){
 		cout << "Some error at empty()" <<endl;
 		return -1;
 	}
 
 	/*Test height*/
-
 	if(btemp.height() != 5){
 		cout << "Some error at height()" << endl;
 		return -1;
 	}
+	
+	BST<int> empty1;
+
+	/*Test empty() */
+	if(!empty1.empty()){
+		cout << "Some error at empty()" <<endl;
+		return -1;
+	}
+
+	/*Test height*/
+	if(empty1.height() != -1){
+		cout << "Some error at height()" << endl;
+		return -1;
+	}
+	
+ 	/*Test size*/	
+	cout << "The size of a empty bst is: " << empty1.size() << endl;
+	if(empty1.size() != 0) {
+		cout << "... which is incorrect." << endl;
+		return -1;
+	}
+
+	/* Test find 
+	for(int item : v) {
+	BSTIterator<int> foundIt = btemp.find(item);
+	if (*(foundIt) != null) {
+		cout << "incorrect value returned.  Expected iterator pointing to "
+		<< item << " but found iterator pointing to " << *(foundIt) 
+		<< endl;
+		return -1;
+		}
+	}
+*/
+	empty1.insert(1);
+	
+	/*Test empty() */
+	if(empty1.empty()){
+		cout << "Some error at empty()" <<endl;
+		return -1;
+	}
+
+	/*Test height*/
+	if(empty1.height() != 0){
+		cout << "Some error at height()" << endl;
+		return -1;
+	}
+	
+ 	/*Test size*/	
+	cout << "The size of a empty bst is: " << empty1.size() << endl;
+	if(empty1.size() != 1) {
+		cout << "... which is incorrect." << endl;
+		return -1;
+	}
 
 
-        
 
 	// Test the iterator: The iterator should give an in-order traversal
         
