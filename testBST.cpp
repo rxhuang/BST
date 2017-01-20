@@ -317,10 +317,32 @@ int main() {
 	cout << "success!" << endl;
 	}
 
+	// Now test the size method
+	cout << "Size is: " << btemp.size() << endl;
+	if(b.size() != v.size()) {
+		cout << "... which is incorrect." << endl;
+		return -1;
+	}
 
+	/*Test empty() */
+
+	if(btemp.empty()){
+		cout << "Some error at empty()" <<endl;
+		return -1;
+	}
+
+	/*Test height*/
+
+	if(btemp.height() != 5){
+		cout << "Some error at height()" << endl;
+		return -1;
+	}
+
+
+        
 
 	// Test the iterator: The iterator should give an in-order traversal
-
+        
 	// Sort the vector, to compare with inorder iteration on the BST
 	sort(v.begin(),v.end());
 
