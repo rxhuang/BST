@@ -28,7 +28,7 @@ int main() {
 	/*test*/
 	vector<int> v;
 	v.push_back(3);
-	/*v.push_back(4);
+	v.push_back(4);
 	v.push_back(1);
 	v.push_back(100);
 	v.push_back(-33);
@@ -38,7 +38,7 @@ int main() {
 	v.push_back(-55);
 	v.push_back(-40);
 	v.push_back(2);
-	*/
+	
 	vector<int> rootDuplicate;
 	rootDuplicate.push_back(2);
 	rootDuplicate.push_back(3);
@@ -346,7 +346,6 @@ int main() {
 	<< ": Incorrect inorder iteration of BST." << endl;
 	return -1;
 	}
-	cout <<"hi"<<endl;
 	++it;
 	}
 

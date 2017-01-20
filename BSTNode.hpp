@@ -61,16 +61,10 @@ BSTNode<Data>* BSTNode<Data>::successor()
     return curr;
   }
   
-  if(this==NULL){
-    return 0;
-  }
-  
   BSTNode<Data>* curr = this;
-  while(parent!=NULL){
-    if(curr->parent->left!=NULL){
-      if(curr->parent->left==curr){
-	return curr->parent;
-      }
+  while(curr->parent!=NULL){
+    if(curr->parent->left==curr){
+      return curr->parent;
     }
     curr = curr->parent;
   }
