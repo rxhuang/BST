@@ -29,3 +29,11 @@ I noticed there was somthing wrong when i was looking at the line "while(curr->l
 Question5.
 The insert method of BST.hpp passes its argument by reference because it is a template class and the data we store may be very big that passing by value will waste a lot of memory by making copies of the data.
 The insert method of BSTInt.h class passes its argument by value because we know that are data is type int and it does not take up a lot of memory. In this case, pass by value is better because it prevents us from changing the data passed in.
+
+Question6.
+The sorted file produces taller trees. (random file height 32 vs sorted file height 11793 with both their sizes being 11794)
+
+Question7.
+Research shows that expected height for BST with size N using random insertions is Log(N). Source Below. 
+http://cs.stackexchange.com/questions/6342/proof-that-a-randomly-built-binary-search-tree-has-logarithmic-height
+Expected height for BST with size N using random insertions is obviously N-1, because every element is inserted as a right child (left child if sorted from high to low) of the previous insertion, so the tree ends up with Height N-1 since root node is height 0.

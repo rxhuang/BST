@@ -77,9 +77,11 @@ private:
   /** Number of Data items stored in this BST. 
    *  Cache this number for efficiency. */
   unsigned int isize;
-
+  
+  //Helper method for height, recursive method to find tha maximum height of left and right subtree
   int heightHelper(BSTNodeInt* n) const;
   
+  //Helper method to return the greater of 2 integers
   int max(int a, int b)const;
 
   /** do a postorder traversal, deleting nodes
@@ -88,7 +90,6 @@ private:
    *   and not on the BSTInt object directly.
    */
   static void deleteAll(BSTNodeInt* n);
-
 
 
 };

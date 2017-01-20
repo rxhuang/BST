@@ -48,50 +48,51 @@ int main(int argc, char* argv[])
     //Check if input file was actually opened
     if(!in.is_open()) 
     {
-        cout<< "Invalid input file. No file was opened. Please try again.\n";
-        return -1;
+      cout<< "Invalid input file. No file was opened. Please try again.\n";
+      return -1;
     }
-	else {
-	  
-        // Follow the comments below to add code:
+    else {
+      
+      // Follow the comments below to add code:
+      
+      // TODO: Create a new BST here
+      
+      BST<string> tree;
+      
+      while (getline(in, name)) {
+	// TODO: add the name string to the BST
+	tree.insert(name);
         
-        // TODO: Create a new BST here
-
-        
-        while (getline(in, name)) {
-            // TODO: add the name string to the BST
-
-            
-        }
+      }
 
         // TODO: Get the height of the BST and store it in height
-
+      height = tree.height();
         // TODO: Get the size of the BST and store it in size
-
+      size = tree.size();
         // DO NOT CHANGE THE LINES BELOW
-        cout << "Size of tree: " << size << endl;
-        cout << "Height of tree: " << height << endl;
-
-        char prompt = 'y';
-        while (prompt != 'n') {
-            cout << "Enter actor/actress name: " << endl;
-            getline(cin, name);
-            
-            // TODO: Chainge the if statment to check is name is in the BST
-            if (true) {
-                cout << name << " found!" << endl;
-            }
-            else {
-                cout << name << " NOT found" << "\n";
-            }
-            cout << "Search again? (y/n)" << endl;
-            cin >> prompt;  // Get the first character
-            // Then ignore until newline
-            cin.ignore( numeric_limits <streamsize> ::max(), '\n' );  
-        }
-        in.close();
-
+      cout << "Size of tree: " << size << endl;
+      cout << "Height of tree: " << height << endl;
+      
+      char prompt = 'y';
+      while (prompt != 'n') {
+	cout << "Enter actor/actress name: " << endl;
+	getline(cin, name);
+        
+	// TODO: Chainge the if statment to check is name is in the BST
+	if (tree.find(name)!=NULL) {
+	  cout << name << " found!" << endl;
+	}
+	else {
+	  cout << name << " NOT found" << "\n";
+	}
+	cout << "Search again? (y/n)" << endl;
+	cin >> prompt;  // Get the first character
+	// Then ignore until newline
+	cin.ignore( numeric_limits <streamsize> ::max(), '\n' );  
+      }
+      in.close();
+      
     }
     return 0;
-
+    
 }

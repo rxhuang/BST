@@ -62,6 +62,8 @@ public:
    */ 
   int height() const;
 
+  
+
 
   /** Return true if the BST is empty, else false.
    */ // TODO
@@ -83,6 +85,12 @@ private:
   
   /** Number of Data items stored in this BST. */
   unsigned int isize;
+
+  //Helper method for height, recursive method to find tha maximum height of left and right subtree
+  int height_Helper(BSTNode<Data>* n) const;
+
+  //Helper method to return the greater of 2 integers
+  int maximum(int a, int b)const;
 
   /** Find the first element of the BST
    * Helper function for the begin method above.
@@ -219,8 +227,28 @@ int BST<Data>::height() const
   if(!root){
     return -1;
   }else{
-    return heightHelper(root);
+    return height_Helper(root);
   }
+}
+
+//Helper method for height, recursive method to find tha maximum height of left and right subtree
+template <typename Data>
+int BST<Data>::height_Helper(BSTNode<Data>* n) const
+{
+  if(!n){
+    return -1;
+  }else{
+    return 1+maximum(height_Helper(n->left),height_Helper(n->right));
+  }
+}
+
+//Helper method to return the greater of 2 integers
+template <typename Data>
+int BST<Data>::maximum(int a, int b)const{
+  if(a>b)
+    return a;
+  else
+    return b;
 }
 
 
