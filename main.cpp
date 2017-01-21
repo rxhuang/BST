@@ -93,6 +93,26 @@ int main(int argc, char* argv[])
       in.close();
       
     }
+    
+    /* Used to test heights for trees of sorted and unsorted insertions
+    int N=10000;
+    while(N<100000){
+      BST<int> tree2;
+      for (int i=0; i<N; i++) {
+	tree2.insert(i);
+      }
+      cout<< "sorted height is " << tree2.height() << endl;
+      int j;
+      BST<int> tree3;
+      while (tree3.size()<N) {
+	j = rand()%1000000;
+	tree3.insert(j);
+      }
+      cout<< "unsorted height is " << tree3.height() << endl;
+      N=N+10000;
+    }
+    */
+
     return 0;
     
 }
