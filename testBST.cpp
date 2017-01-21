@@ -27,17 +27,18 @@ int main() {
 	/* Create STL vectors of some ints */
 	/*test*/
 	vector<int> v;
-	v.push_back(3);
-	v.push_back(4);
 	v.push_back(1);
+        v.push_back(2);
+        v.push_back(7);
+        v.push_back(5);
+        v.push_back(3);
+        v.push_back(4);
+        v.push_back(6);
 	v.push_back(100);
-	v.push_back(-33);
-	v.push_back(5);
 	v.push_back(-50);
 	v.push_back(-60);
 	v.push_back(-55);
 	v.push_back(-40);
-	v.push_back(2);
 	
 	vector<int> rootDuplicate;
 	rootDuplicate.push_back(2);
@@ -66,6 +67,16 @@ int main() {
 	oneChildDuplicate.push_back(1);
 	oneChildDuplicate.push_back(4);
 	oneChildDuplicate.push_back(3);
+
+	vector<int> succ;
+        succ.push_back(1);
+        succ.push_back(2);
+        succ.push_back(7);
+        succ.push_back(6);
+        succ.push_back(3);
+        succ.push_back(4);
+        succ.push_back(5);
+
 
 	/* Create an instance of BST holding int */
 	BSTInt b;
@@ -246,6 +257,38 @@ int main() {
 		return -1;
 	}
 
+	/* Test size. */
+        if(c.size() != rootDuplicate.size()-1) {
+          cout << "Size is: " << c.size() << endl;
+          cout << "... which is incorrect." << endl;
+          return -1;
+        }
+
+
+	/* Test size. */
+        if(d.size() != middleDuplicate.size()-1) {
+          cout << "Size is: " << d.size() << endl;
+          cout << "... which is incorrect." << endl;
+          return -1;
+        }
+
+	/* Test size. */
+        if(e.size() != leafDuplicate.size()-1) {
+          cout << "Size is: " << e.size() << endl;
+          cout << "... which is incorrect." << endl;
+          return -1;
+        }
+
+	/* Test size. */
+        if(f.size() != oneChildDuplicate.size()-1) {
+          cout << "Size is: " << f.size() << endl;
+          cout << "... which is incorrect." << endl;
+          return -1;
+        }
+
+
+
+	
 	/*Test height*/
 	BSTInt k;
 	k.insert(0);
@@ -319,7 +362,7 @@ int main() {
 
 	// Now test the size method
 	cout << "Size is: " << btemp.size() << endl;
-	if(b.size() != v.size()) {
+	if(btemp.size() != v.size()) {
 		cout << "... which is incorrect." << endl;
 		return -1;
 	}
@@ -331,8 +374,9 @@ int main() {
 	}
 
 	/*Test height*/
+	
 	if(btemp.height() != 5){
-		cout << "Some error at height()" << endl;
+	  cout << "Some error at height()" << btemp.height() << endl;
 		return -1;
 	}
 	
@@ -398,7 +442,7 @@ int main() {
 
 
 	// Test the iterator: The iterator should give an in-order traversal
-        
+	
 	// Sort the vector, to compare with inorder iteration on the BST
 	sort(v.begin(),v.end());
 
@@ -491,6 +535,128 @@ int main() {
 		cout << "Some error at height()" << endl;
 		return -1;
 	}
+	
+	
+	
+	/* Create an instance of BST holding int */
+        BST<int> c1;
+        i=0;
+        // Could use: for(auto item : v) { instead of the line below
+        for(int item : rootDuplicate) {
+          bool pr =  (c1.insert(item).second);
+          i++;
+          if(pr&&i==4) {
+            cout << "Incorrect bool return value when inserting " << item << " to rootDuplicate"
+                 << endl;
+            return -1;
+          }
+        }
+
+        /* Create an instance of BST holding int */
+        BST<int> d1;
+        i=0;
+        // Could use: for(auto item : v) { instead of the line below
+        for(int item : middleDuplicate) {
+          bool pr =  (d1.insert(item).second);
+          i++;
+          if(pr&&i==5 ) {
+            cout << "Incorrect bool return value when inserting " << item << " to middleDuplicate"
+                 << endl;
+            return -1;
+          }
+        }
+
+        /* Create an instance of BST holding int */
+        BST<int> e1;
+        i=0;
+        // Could use: for(auto item : v) { instead of the line below
+        for(int item : leafDuplicate) {
+          bool pr =  (e1.insert(item).second);
+          i++;
+          if(pr&&i==5 ) {
+            cout << "Incorrect bool return value when inserting " << item << " to leafDuplicate"
+                 << endl;
+            return -1;
+          }
+	}
+
+        /* Create an instance of BST holding int */
+        BST<int> f1;
+        i=0;
+        // Could use: for(auto item : v) { instead of the line below
+        for(int item : oneChildDuplicate) {
+          bool pr =  (f1.insert(item).second);
+          i++;
+          if(pr&&i==5 ) {
+            cout << "Incorrect bool return value when inserting " << item << " to oneChildDuplicate"
+                 << endl;
+            return -1;
+          }
+        }
+
+       
+	// Test the items that are already in the tree
+	for(int item : rootDuplicate) {
+	  if(!*(c1.find(item))) {
+	    cout << "Incorrect return value when finding " << item << endl;
+	    return -1;
+	  }
+	}
+
+	/* Test find return value. */
+	// Test the items that are already in the tree
+	for(int item : middleDuplicate) {
+	  if(!*(d1.find(item))) {
+	    cout << "Incorrect return value when finding " << item << endl;
+	    return -1;
+	  }
+	}
+
+	/* Test find return value. */
+	// Test the items that are already in the tree
+	for(int item : leafDuplicate) {
+	  if(!*(e1.find(item))) {
+	    cout << "Incorrect return value when finding " << item << endl;
+	    return -1;
+	  }
+	}
+
+	/* Test find return value. */
+	// Test the items that are already in the tree
+	for(int item : oneChildDuplicate) {
+	  if(!*(f1.find(item))) {
+	    cout << "Incorrect return value when finding " << item << endl;
+	    return -1;
+	  }
+	}
+	
+	/* Test size. */
+	if(c1.size() != rootDuplicate.size()-1) {
+	  cout << "Size is: " << c1.size() << endl;
+	  cout << "... which is incorrect." << endl;
+	  return -1;
+        }
+	
+	/* Test size. */
+        if(d1.size() != middleDuplicate.size()-1) {
+          cout << "Size is: " << d1.size() << endl;
+          cout << "... which is incorrect." << endl;
+          return -1;
+        }
+
+	/* Test size. */
+        if(e1.size() != leafDuplicate.size()-1) {
+          cout << "Size is: " << e1.size() << endl;
+          cout << "... which is incorrect." << endl;
+          return -1;
+        }
+
+	/* Test size. */
+        if(f1.size() != oneChildDuplicate.size()-1) {
+          cout << "Size is: " << f1.size() << endl;
+          cout << "... which is incorrect." << endl;
+          return -1;
+        }
 	
 	cout << "All tests passed!" << endl;
 	return 0;
