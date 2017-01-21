@@ -356,18 +356,17 @@ int main() {
 		cout << "... which is incorrect." << endl;
 		return -1;
 	}
-
-	/* Test find 
+	
+	/*Test find*/
 	for(int item : v) {
-	BSTIterator<int> foundIt = btemp.find(item);
-	if (*(foundIt) != null) {
-		cout << "incorrect value returned.  Expected iterator pointing to "
-		<< item << " but found iterator pointing to " << *(foundIt) 
+	BSTIterator<int> foundIt = empty1.find(item);
+	if ((foundIt) != BSTIterator<int>(nullptr)) {
+		cout << "incorrect value returned. This is a empty BST and should not be able to find the object. "
 		<< endl;
 		return -1;
 		}
 	}
-*/
+
 	empty1.insert(1);
 	
 	/*Test empty() */
@@ -389,6 +388,13 @@ int main() {
 		return -1;
 	}
 
+	/*Test find*/
+	BSTIterator<int> foundIt = empty1.find(1);
+	if ((*foundIt) != 1) {
+		cout << "incorrect value returned. "
+		<< endl;
+		return -1;
+	}
 
 
 	// Test the iterator: The iterator should give an in-order traversal
@@ -423,11 +429,69 @@ int main() {
 
 	cout << "success!" << endl;
 
+	//Test the overloaded operator != and ==
+	auto be = btemp.begin();
+	
+	if(en != en){
+		cout << "Incorrect != operator" << endl;
+		return -1;
+	}
 
+	if(be == en){
+		cout << "Incorrect == operator" << endl;
+		return -1;
+	}
 
+	if(!(be == be)){
+		cout << "Incorrect == operator" << endl;
+		return -1;	
+	}
+
+	if(!(be != en)){
+		cout << "Incorrect != operator" << endl;
+		return -1;	
+	}
 	// ADD MORE TESTS HERE.  You might also want to change what is input
 	// into the vector v.
 
+	//Test for another vector
+	BST<int> ctemp;
+	for(int item : rootDuplicate) {
+	        ctemp.insert(item);
+	}	
+	
+	// Now test finding the elements we just put in
+	for (int item: rootDuplicate) {
+	cout << "Finding " << item << "...." << endl;
+	BSTIterator<int> foundIt = ctemp.find(item);
+	if (*(foundIt) != item) {
+	cout << "incorrect value returned.  Expected iterator pointing to "
+	<< item << " but found iterator pointing to " << *(foundIt) 
+	<< endl;
+	return -1;
+	}
+	cout << "success!" << endl;
+	}
+
+	// Now test the size method
+	cout << "Size is: " << ctemp.size() << endl;
+	if(ctemp.size() != 4) {
+		cout << "... which is incorrect." << endl;
+		return -1;
+	}
+
+	/*Test empty() */
+	if(ctemp.empty()){
+		cout << "Some error at empty()" <<endl;
+		return -1;
+	}
+
+	/*Test height*/
+	if(ctemp.height() != 2){
+		cout << "Some error at height()" << endl;
+		return -1;
+	}
+	
 	cout << "All tests passed!" << endl;
 	return 0;
 }
